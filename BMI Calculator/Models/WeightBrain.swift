@@ -7,3 +7,18 @@
 //
 
 import Foundation
+
+class WeightBrain: MeasurementBrainBase
+{
+    init(minLbs min: Float, maxLbs max: Float)
+    {
+        super.init(minValue: min, maxValue: max)
+    }
+    
+    override func getValueText() -> String
+    {
+        // Return weight as whole number (no decimal places)
+        // Example: 200 lbs
+        return "\(String(format: "%.0f", currentValue)) lbs"
+    }
+}

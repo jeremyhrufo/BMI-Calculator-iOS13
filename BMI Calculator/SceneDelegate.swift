@@ -3,6 +3,7 @@
 //  BMI Calculator
 //
 //  Created by Jeremy Rufo
+//  Copyright © 2020 Jeremy H Rufo. All rights reserved.
 //
 
 import UIKit

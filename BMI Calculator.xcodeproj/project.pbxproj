@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1F4A44BE24C9E15500132B78 /* HeightBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4A44BD24C9E15500132B78 /* HeightBrain.swift */; };
 		1F4A44C024C9E16800132B78 /* WeightBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4A44BF24C9E16800132B78 /* WeightBrain.swift */; };
+		1F4A44C224CA0B4300132B78 /* BmiBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4A44C124CA0B4300132B78 /* BmiBrain.swift */; };
+		1F4A44C424CA113F00132B78 /* MeasurementBrainBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4A44C324CA113F00132B78 /* MeasurementBrainBase.swift */; };
 		AD0B9F7A230D61800065EFD9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0B9F79230D61800065EFD9 /* AppDelegate.swift */; };
 		AD0B9F7C230D61800065EFD9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0B9F7B230D61800065EFD9 /* SceneDelegate.swift */; };
 		AD0B9F7E230D61800065EFD9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0B9F7D230D61800065EFD9 /* ViewController.swift */; };
@@ -21,6 +23,8 @@
 /* Begin PBXFileReference section */
 		1F4A44BD24C9E15500132B78 /* HeightBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeightBrain.swift; sourceTree = "<group>"; };
 		1F4A44BF24C9E16800132B78 /* WeightBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightBrain.swift; sourceTree = "<group>"; };
+		1F4A44C124CA0B4300132B78 /* BmiBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BmiBrain.swift; sourceTree = "<group>"; };
+		1F4A44C324CA113F00132B78 /* MeasurementBrainBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementBrainBase.swift; sourceTree = "<group>"; };
 		AD0B9F76230D61800065EFD9 /* BMI Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BMI Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD0B9F79230D61800065EFD9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AD0B9F7B230D61800065EFD9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +100,8 @@
 			children = (
 				1F4A44BD24C9E15500132B78 /* HeightBrain.swift */,
 				1F4A44BF24C9E16800132B78 /* WeightBrain.swift */,
+				1F4A44C124CA0B4300132B78 /* BmiBrain.swift */,
+				1F4A44C324CA113F00132B78 /* MeasurementBrainBase.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -173,10 +179,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD0B9F7E230D61800065EFD9 /* ViewController.swift in Sources */,
+				1F4A44C424CA113F00132B78 /* MeasurementBrainBase.swift in Sources */,
 				1F4A44BE24C9E15500132B78 /* HeightBrain.swift in Sources */,
 				AD0B9F7A230D61800065EFD9 /* AppDelegate.swift in Sources */,
 				AD0B9F7C230D61800065EFD9 /* SceneDelegate.swift in Sources */,
 				1F4A44C024C9E16800132B78 /* WeightBrain.swift in Sources */,
+				1F4A44C224CA0B4300132B78 /* BmiBrain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

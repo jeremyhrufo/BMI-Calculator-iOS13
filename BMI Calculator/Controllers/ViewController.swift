@@ -3,17 +3,60 @@
 //  BMI Calculator
 //
 //  Created by Jeremy Rufo
+//  Copyright © 2020 Jeremy H Rufo. All rights reserved.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController
+{
+    var heightBrain = HeightBrain(minInches: 36.0, maxInches: 120.0)
+    var weightBrain = WeightBrain(minLbs: 0.0, maxLbs: 450.0)
+    
+    @IBOutlet weak var heightLabel: UILabel!
+    @IBOutlet weak var weightLabel: UILabel!
+    @IBOutlet weak var heightSlider: UISlider!
+    @IBOutlet weak var weightSlider: UISlider!
 
-    override func viewDidLoad() {
+    
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        heightSlider.minimumValue = heightBrain.getMinimum()
+        heightSlider.maximumValue = heightBrain.getMaximum()
+        weightSlider.minimumValue = weightBrain.getMinimum()
+        weightSlider.maximumValue = weightBrain.getMaximum()
+        
+        heightBrain.updateValue(value: 77.5)
+        heightSlider.value = heightBrain.getValue()
+        weightBrain.updateValue(value: 220.0)
+        weightSlider.value = weightBrain.getValue()
+        
+        updateUI()
     }
 
-
+    @IBAction func heightChanged(_ sender: UISlider)
+    {
+        heightBrain.updateValue(value: sender.value)
+        updateUI()
+    }
+    
+    @IBAction func weightChanged(_ sender: UISlider)
+    {
+        weightBrain.updateValue(value: sender.value)
+        updateUI()
+    }
+    
+    func updateUI()
+    {
+        heightLabel.text = heightBrain.getValueText()
+        weightLabel.text = weightBrain.getValueText()
+    }
+    
+    @IBAction func calculateBMI(_ sender: UIButton)
+    {
+        let bmiBrain = BmiBrain(heightInches: heightBrain.getValue(), weightLbs: weightBrain.getValue())
+        print("BMI is: \(bmiBrain.getBMI())")
+    }
 }
-
