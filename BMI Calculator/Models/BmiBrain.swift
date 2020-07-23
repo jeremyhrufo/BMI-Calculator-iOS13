@@ -34,12 +34,17 @@ struct BmiBrain
         return lbs / 2.2046
     }
     
-    func getBMI() -> Float
+    private func getBmi() -> Float
     {
         /* The formula for BMI is weight in kilograms divided by height in meters squared
                weight (kg) / [height (m)]2
          */
         
         return self.weight / pow(self.height, 2)
+    }
+    
+    func getBmiText() -> String
+    {
+        return String(format: "%.1f", getBmi())
     }
 }

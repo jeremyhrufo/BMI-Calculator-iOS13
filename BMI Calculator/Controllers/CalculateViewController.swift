@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController
+class CalculateViewController: UIViewController
 {
     var heightBrain = HeightBrain(minInches: 36.0, maxInches: 120.0)
     var weightBrain = WeightBrain(minLbs: 0.0, maxLbs: 450.0)
@@ -17,7 +17,6 @@ class ViewController: UIViewController
     @IBOutlet weak var weightLabel: UILabel!
     @IBOutlet weak var heightSlider: UISlider!
     @IBOutlet weak var weightSlider: UISlider!
-
     
     override func viewDidLoad()
     {
@@ -54,9 +53,24 @@ class ViewController: UIViewController
         weightLabel.text = weightBrain.getValueText()
     }
     
+    func getBmiText() -> String
+    {
+        let bmiBrain =
+            BmiBrain(heightInches: heightBrain.getValue(), weightLbs: weightBrain.getValue())
+        return bmiBrain.getBmiText()
+    }
+    
     @IBAction func calculateBMI(_ sender: UIButton)
     {
-        let bmiBrain = BmiBrain(heightInches: heightBrain.getValue(), weightLbs: weightBrain.getValue())
-        print("BMI is: \(bmiBrain.getBMI())")
+        self.performSegue(withIdentifier: "goToResult", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.identifier == "goToResult"
+        {
+            let destinationVC = segue.destination as? ResultViewController
+            destinationVC?.bmiValue = getBmiText()
+        }
     }
 }
