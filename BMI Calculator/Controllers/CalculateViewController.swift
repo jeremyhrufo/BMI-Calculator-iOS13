@@ -53,11 +53,11 @@ class CalculateViewController: UIViewController
         weightLabel.text = weightBrain.getValueText()
     }
     
-    func getBmiText() -> String
+    func getBmiObject() -> BMIObject
     {
         let bmiBrain =
             BmiBrain(heightInches: heightBrain.getValue(), weightLbs: weightBrain.getValue())
-        return bmiBrain.getBmiText()
+        return bmiBrain.getBmi()
     }
     
     @IBAction func calculateBMI(_ sender: UIButton)
@@ -70,7 +70,7 @@ class CalculateViewController: UIViewController
         if segue.identifier == "goToResult"
         {
             let destinationVC = segue.destination as? ResultViewController
-            destinationVC?.bmiValue = getBmiText()
+            destinationVC?.bmiValue = getBmiObject()
         }
     }
 }

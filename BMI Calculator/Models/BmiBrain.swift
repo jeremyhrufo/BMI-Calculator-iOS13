@@ -10,13 +10,11 @@ import Foundation
 
 struct BmiBrain
 {
-    var height: Float
-    var weight: Float
+    var height: Float?
+    var weight: Float?
     
     init(heightInches: Float, weightLbs: Float)
     {
-        self.height = 0.0
-        self.weight = 0.0
         self.height = getHeightInches(inches: heightInches)
         self.weight = getWeightLbs(lbs: weightLbs)
     }
@@ -34,17 +32,31 @@ struct BmiBrain
         return lbs / 2.2046
     }
     
-    private func getBmi() -> Float
+    private func getBmiValue() -> Float
     {
-        /* The formula for BMI is weight in kilograms divided by height in meters squared
-               weight (kg) / [height (m)]2
+        /* The formula for BMI is weight in kilograms
+           divided by height in meters squared
+               BMI = weight (kg) / [height (m)]2
          */
-        
-        return self.weight / pow(self.height, 2)
+        return (self.weight ?? 0) / (pow(self.height ?? 1, 2))
     }
     
     func getBmiText() -> String
     {
-        return String(format: "%.1f", getBmi())
+        return getBmi().getBmiText()
+    }
+    
+    func getBmi() -> BMIObject
+    {
+        let bmi = getBmiValue()
+        if bmi < 18.5
+        {
+            return BMIObject(value: bmi, advice: "Eat more pies.", color: .blue)
+        }
+        else if bmi < 24.9
+        {
+            return BMIObject(value: bmi, advice: "Keep doing what you're doing.", color: .green)
+        }
+        return BMIObject(value: bmi, advice: "Go running and lift weights.", color: .red)
     }
 }
